@@ -57,6 +57,7 @@ export const Login = () => {
         }
         logUser(credenciales)
             .then(resultado => {
+              console.log (resultado.data)
                 dispatch(login({ credentials: resultado.data }))
                 setTimeout(() => {
                     resultado.data.data.role === "super_admin"
@@ -66,6 +67,7 @@ export const Login = () => {
                     , 500);
             })
             .catch(error => {
+               console.log (credenciales)
                 setMsgError(error.message)
             });
     }

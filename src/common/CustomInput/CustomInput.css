@@ -10,3 +10,6 @@
     margin-bottom: 4em;
 }
 
+.inputDesignError {
+    border: 0.7em red solid;
+}
