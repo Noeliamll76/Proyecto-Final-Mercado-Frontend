@@ -9,98 +9,97 @@ import { login } from "../userSlice";
 
 export const Login = () => {
 
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-    const [msgError, setMsgError] = useState('');
+  const [msgError, setMsgError] = useState('');
 
-    const [credenciales, setCredenciales] = useState({
-        email: "",
-        password: "",
-    });
+  const [credenciales, setCredenciales] = useState({
+    email: "",
+    password: "",
+  });
 
-    const [credencialesError, setCredencialesError] = useState({
-        emailError: '',
-        passwordError: '',
-    })
+  const [credencialesError, setCredencialesError] = useState({
+    emailError: '',
+    passwordError: '',
+  })
 
-    const functionHandler = (e) => {
-        setCredenciales((prevState) => ({
-            ...prevState,
-            [e.target.name]: e.target.value
-        }));
-    };
+  const functionHandler = (e) => {
+    setCredenciales((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value
+    }));
+  };
 
-    const errorCheck = (e) => {
-        let error = "";
-        error = validator(e.target.name, e.target.value);
-        setCredencialesError((prevState) => ({
-            ...prevState,
-            [e.target.name + 'Error']: error,
-        }));
+  const errorCheck = (e) => {
+    let error = "";
+    error = validator(e.target.name, e.target.value);
+    setCredencialesError((prevState) => ({
+      ...prevState,
+      [e.target.name + 'Error']: error,
+    }));
+  }
+
+  useEffect(() => {
+    console.log(credenciales);
+  }, [credenciales]);
+
+  const logMe = () => {
+    for (let test1 in credenciales) {
+      if (credenciales[test1] === "") {
+        return;
+      }
     }
-
-    useEffect(() => {
-        console.log(credenciales);
-    }, [credenciales]);
-
-    const logMe = () => {
-        for (let test1 in credenciales) {
-            if (credenciales[test1] === "") {
-                return;
-            }
-        }
-        for (let test in credencialesError) {
-            if (credencialesError[test] !== "") {
-                return;
-            }
-        }
-        logUser(credenciales)
-            .then(resultado => {
-              console.log (resultado.data)
-                dispatch(login({ credentials: resultado.data }))
-                setTimeout(() => {
-                    resultado.data.data.role === "super_admin"
-                        ? (navigate("/SuperAdmin"))
-                        : (navigate("/"))
-                }
-                    , 500);
-            })
-            .catch(error => {
-               console.log (credenciales)
-                setMsgError(error.message)
-            });
+    for (let test in credencialesError) {
+      if (credencialesError[test] !== "") {
+        return;
+      }
     }
+    logUser(credenciales)
+      .then(resultado => {
+        console.log(resultado.data)
+        dispatch(login({ credentials: resultado.data }))
+        setTimeout(() => {
+          resultado.data.data.roles !== "user"
+            ? (navigate("/profileStore"))
+            : (navigate("/"))
+        }
+          , 500);
+      })
+      .catch(error => {
+        setMsgError(error.message)
+      });
+  }
 
-    return (
-        <div className="loginDesign">
+  return (
+    <div className="loginDesign">
 
-            <div>Email :
-                <CustomInput
-                    design={"inputDesign"}
-                    type={"email"}
-                    name={"email"}
-                    placeholder={"email"}
-                    functionProp={functionHandler}
-                    functionBlur={errorCheck}
-                />
-                <div className='errorMsg'>{credencialesError.emailError}</div>
-            </div>
+      <div>Email :
+        <CustomInput
+          design={"inputDesign"}
+          type={"email"}
+          name={"email"}
+          placeholder={"email"}
+          functionProp={functionHandler}
+          functionBlur={errorCheck}
+        />
+        <div className='errorMsg'>{credencialesError.emailError}</div>
+      </div>
 
-            <div>Password :
-                <CustomInput
-                    design={"inputDesign"}
-                    type={"password"}
-                    name={"password"}
-                    placeholder={"password min 4 characters"}
-                    functionProp={functionHandler}
-                    functionBlur={errorCheck}
-                />
-                <div className='errorMsg'>{credencialesError.passwordError}</div>
-            </div>
+      <div>Password :
+        <CustomInput
+          design={"inputDesign"}
+          type={"password"}
+          name={"password"}
+          placeholder={"password min 4 characters"}
+          functionProp={functionHandler}
+          functionBlur={errorCheck}
+        />
+        <div className='errorMsg'>{credencialesError.passwordError}</div>
+      </div>
 
-            <div className='buttonSubmit' onClick={logMe}>Log Me!</div>
-            <div>{msgError}</div>
-        </div>
-    )
+      <div className='buttonSubmit' onClick={logMe}>Log Me!</div>
+      <div>{msgError}</div>
+    </div>
+  )
 }
