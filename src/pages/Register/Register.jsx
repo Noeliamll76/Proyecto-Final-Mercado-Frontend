@@ -92,7 +92,7 @@ export const Register = () => {
                 />
                 <div className='errorMsg'>{userError.nameError}</div>
             </div>
-
+      
             <div>Dirección :
                 <CustomInput
                     design={`inputDesign ${userError.addressError !== "" ? 'inputDesignError' : ''}`}
@@ -128,6 +128,7 @@ export const Register = () => {
                 />
                 <div className='errorMsg'>{userError.townError}</div>
             </div>
+       
 
             <div>Phone number :
                 <CustomInput

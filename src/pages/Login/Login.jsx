@@ -62,7 +62,7 @@ export const Login = () => {
         setTimeout(() => {
           resultado.data.data.roles !== "user"
             ? (navigate("/profileStore"))
-            : (navigate("/"))
+            : (navigate("/profile"))
         }
           , 500);
       })

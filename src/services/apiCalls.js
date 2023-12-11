@@ -9,3 +9,11 @@ export const registerUser = async (body) => {
  export const logUser = async (body) => {
     return await axios.post(`${hostURL}/login`, body);
  }
+
+ export const getUser = async (token) => {
+   return await axios.get(`${hostURL}/users/profile`, { headers: { Authorization: `Bearer ${token}` } });
+}
+
+export const updateUser = async (token) => {
+   return await axios.get(`${hostURL}/users/update`, { headers: { Authorization: `Bearer ${token}` } });
+}
