@@ -10,4 +10,33 @@
     align-items: center;
 
     background-color: beige;
+    color: darkslategray;
+    font-size: medium;
+   
+    overflow-y: scroll;
+}
+
+.errorMsg {
+    font-size: medium;
+    color: red;
+}
+
+.buttonSubmit {
+    height: 3em;
+    width: 8em;
+
+    border-radius: 1em;
+    background-color: crimson;
+    color: white;
+    font-size: large;
+
+    display: flex;
+    justify-content: center;
+    align-items: unset;
+}
+
+.buttonSubmit:hover {
+    transition: 0.4s;
+    background-color: lightcoral;
+    cursor: pointer;
 }

@@ -53,19 +53,16 @@ export const Profile = () => {
                     .then
                     ((results) => {
                         setProfile(results.data.data);
-                        console.log(results)
-                        console.log(setProfile)
                     })
-
                     .catch((error) => console.log(error));
             }
         }
-        console.log([profile.address])
     }, [profile]);
 
     const errorCheck = (e) => {
         let error = "";
         error = validator(e.target.name, e.target.value);
+        console.log(error)
         setProfileError((prevState) => ({
             ...prevState,
             [e.target.name + 'Error']: error,
@@ -91,8 +88,6 @@ export const Profile = () => {
             };
             const response = await updateUser(body, token);
             setMsgError(response.data.message)
-            console.log("he pasado el update")
-            console.log(response.data.message)
             setTimeout(() => {
                 setIsEnabled(true)
                 navigate("/");
@@ -104,7 +99,6 @@ export const Profile = () => {
     return (
         <div className="profileDesign">
             <div>Nombre :
-                <p>Estoy dentro de nombre {profile.name}</p>
                 <CustomInput
                     disabled={isEnabled}
                     design={`inputDesign ${profileError.nameError !== ""
@@ -122,7 +116,6 @@ export const Profile = () => {
             </div>
 
             <div>Email :
-                <p>Estoy dentro de email {profile.email}</p>
                 <CustomInput
                     disabled={isEnabled}
                     design={`inputDesign ${profileError.emailError !== ""
@@ -140,7 +133,6 @@ export const Profile = () => {
             </div>
 
             <div>Phone :
-                <p>Estoy dentro de phone {profile.phone}</p>
                 <CustomInput
                     disabled={isEnabled}
                     design={`inputDesign ${profileError.phoneError !== "" ? "inputDesignError" : ""

@@ -17,8 +17,9 @@ export const validator = (type, value) => {
         case 'store_name':
         case 'store_owner':
         case 'location':
+        case 'address':
             if (value.length > 100) {
-                return "Escribe un nombre correcto"
+                return "Escribe un texto correcto"
             } else {
                 return ""
             }
@@ -26,7 +27,7 @@ export const validator = (type, value) => {
         case 'phone':
         case 'telefono':
 
-            if (! /(?=.*?[0-9])/.test(value)) {
+            if (! /(?=.*?[0-9])/.test(value) || value.length < 8) {
                 return "Incorrect phone number";
             } else {
                 return "";

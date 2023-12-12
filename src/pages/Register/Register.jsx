@@ -47,9 +47,6 @@ export const Register = () => {
     const errorCheck = (e) => {
         let error = ""
         error = validator(e.target.name, e.target.value);
-        console.log (e.target.name)
-        console.log (e.target.value)
-        console.log (error)
         setUserError((prevState) => ({
             ...prevState,
             [e.target.name + 'Error']: error,
@@ -80,7 +77,8 @@ export const Register = () => {
                 }, 500)
             }
             )
-            .catch(error => console.log(error));
+            .catch(error => console.log(error),
+            console.log (error));
     }
 
     return (
@@ -187,7 +185,7 @@ export const Register = () => {
                     design={`inputDesign ${userError.passwordError !== "" ? 'inputDesignError' : ''}`}
                     type={"password"}
                     name={"password"}
-                    placeholder={"password min 8 characters"}
+                    placeholder={"password 8-10 characters"}
                     functionProp={functionHandler}
                     functionBlur={errorCheck}
                 />
