@@ -6,7 +6,6 @@ import { CustomInput } from "../../common/CustomInput/CustomInput";
 import { getUser, updateUser } from "../../services/apiCalls";
 import { validator } from "../../services/useful";
 import { useNavigate } from 'react-router-dom';
-import { jwtDecode } from 'jwt-decode';
 import { useSelector } from "react-redux";
 import { userData } from "../../pages/userSlice";
 
@@ -14,24 +13,32 @@ export const Profile = () => {
 
     const rdxUser = useSelector(userData);
     const token = rdxUser.credentials.token
-    console.log (token)
-    // const tokenDecodificated = jwtDecode(token)
-    // const idToLogin = tokenDecodificated.id
-    
+
     const navigate = useNavigate();
     const [isEnabled, setIsEnabled] = useState(true);
     const [msgError, setMsgError] = useState();
 
-    const [Profile, setProfile] = useState({
+    const [profile, setProfile] = useState({
         name: '',
-        email: '',
+        address: '',
+        zip_code: '',
+        town: '',
         phone: '',
+        DNI: '',
+        birthdate: '',
+        email: '',
     })
 
-    const [ProfileError, setProfileError] = useState({
+    const [profileError, setProfileError] = useState({
         nameError: '',
-        emailError: '',
+        addressError: '',
+        zip_codeError: '',
+        townError: '',
         phoneError: '',
+        DNIError: '',
+        birthdateError: '',
+        emailError: '',
+
     })
 
     useEffect(() => {
@@ -40,28 +47,21 @@ export const Profile = () => {
 
     useEffect(() => {
         setMsgError("")
-        for (let test in Profile) {
-            if (Profile[test] === "") {
+        for (let test in profile) {
+            if (profile[test] === "") {
                 getUser(token)
-                    .then((results) => {
-                        console.log ("entro en getUser con el token ")
-                        console.log (results)
-                        // setProfile(results.data.data);
-                        setProfile((prevProfile)=> ({...prevProfile,
-                        name: results.data.data.name,
-                        email: results.data.data.email,
-                        phone: results.data.data.phone,
-                      
-                    }));
-                        
-
+                    .then
+                    ((results) => {
+                        setProfile(results.data.data);
+                        console.log(results)
+                        console.log(setProfile)
                     })
+
                     .catch((error) => console.log(error));
             }
         }
-    }, []);
-    // [Profile]);
-
+        console.log([profile.address])
+    }, [profile]);
 
     const errorCheck = (e) => {
         let error = "";
@@ -81,16 +81,18 @@ export const Profile = () => {
 
     const sendData = async () => {
         try {
-            for (let test in Profile) { if (Profile[test] === "") return; }
-            for (let test in ProfileError) { if (ProfileError[test] !== "") return; }
+            for (let test in profile) { if (profile[test] === "") return; }
+            for (let test in profileError) { if (profileError[test] !== "") return; }
 
             const body = {
-                name: Profile.name,
-                email: Profile.email,
-                phone: Profile.phone,
+                name: profile.name,
+                email: profile.email,
+                phone: profile.phone,
             };
             const response = await updateUser(body, token);
             setMsgError(response.data.message)
+            console.log("he pasado el update")
+            console.log(response.data.message)
             setTimeout(() => {
                 setIsEnabled(true)
                 navigate("/");
@@ -101,47 +103,56 @@ export const Profile = () => {
 
     return (
         <div className="profileDesign">
-            
             <div>Nombre :
+                <p>Estoy dentro de nombre {profile.name}</p>
                 <CustomInput
                     disabled={isEnabled}
-                    design={`inputDesign ${ProfileError.nameError !== "" ? "inputDesignError" : ""
+                    design={`inputDesign ${profileError.nameError !== ""
+                        ? "inputDesignError"
+                        : ""
                         }`}
                     type={"text"}
                     name={"name"}
-                    value={Profile.name}
+                    // placeholder={profile.name}
+                    value={profile.name}
                     functionProp={functionHandler}
                     functionBlur={errorCheck}
                 />
-                <div className='errorMsg'>{ProfileError.nameError}</div>
+                <div className='errorMsg'>{profileError.nameError}</div>
             </div>
 
             <div>Email :
+                <p>Estoy dentro de email {profile.email}</p>
                 <CustomInput
                     disabled={isEnabled}
-                    design={`inputDesign ${ProfileError.emailError !== "" ? "inputDesignError" : ""
+                    design={`inputDesign ${profileError.emailError !== ""
+                        ? "inputDesignError"
+                        : ""
                         }`}
                     type={"email"}
                     name={"email"}
-                    value={Profile.email}
+                    // placeholder={profile.email}
+                    value={profile.email}
                     functionProp={functionHandler}
                     functionBlur={errorCheck}
                 />
-                <div className='errorMsg'>{ProfileError.emailError}</div>
+                <div className='errorMsg'>{profileError.emailError}</div>
             </div>
 
             <div>Phone :
+                <p>Estoy dentro de phone {profile.phone}</p>
                 <CustomInput
                     disabled={isEnabled}
-                    design={`inputDesign ${ProfileError.phoneError !== "" ? "inputDesignError" : ""
+                    design={`inputDesign ${profileError.phoneError !== "" ? "inputDesignError" : ""
                         }`}
                     type={"text"}
                     name={"phone"}
-                    value={Profile.phone}
+                    // placeholder={profile.phone}
+                    value={profile.phone}
                     functionProp={functionHandler}
                     functionBlur={errorCheck}
                 />
-                <div className='errorMsg'>{ProfileError.phoneError}</div>
+                <div className='errorMsg'>{profileError.phoneError}</div>
 
                 <div className='errorMsg'>{msgError}</div>
 

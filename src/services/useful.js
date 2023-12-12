@@ -17,7 +17,7 @@ export const validator = (type, value) => {
         case 'store_name':
         case 'store_owner':
         case 'location':
-            if (value.length > 25) {
+            if (value.length > 100) {
                 return "Escribe un nombre correcto"
             } else {
                 return ""
@@ -36,15 +36,21 @@ export const validator = (type, value) => {
         case 'password2':
         case 'contraseña':
             if (value.length < 8 && value.length > 10) {
-                return "Write 8-10 characters"
+                return "Invalid password write 8-10 characters"
             } else {
-                if (! /[\d()+-]/g.test(value)) {
-                    return "Invalid password format";
-                } else {
-                    return "";
-                }
+                // if (! /[\d()+-]/g.test(value)) {
+                //     return "Invalid password format";
+                // } else {
+                return "";
+                // }
             }
-
+        case 'zip_code':
+        case 'codigo_postal':
+            if (value === 46011 || (value > 46020 && value < 46025)) {
+                return ""
+            } else {
+                return "Invalid zip code";
+            }
 
     }
 }

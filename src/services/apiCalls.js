@@ -14,6 +14,6 @@ export const registerUser = async (body) => {
    return await axios.get(`${hostURL}/users/profile`, { headers: { Authorization: `Bearer ${token}` } });
 }
 
-export const updateUser = async (token) => {
-   return await axios.get(`${hostURL}/users/update`, { headers: { Authorization: `Bearer ${token}` } });
+export const updateUser = async (body, token) => {
+   return await axios.put(`${hostURL}/users/update`, body, { headers: { Authorization: `Bearer ${token}`, }, })
 }

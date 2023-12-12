@@ -47,6 +47,9 @@ export const Register = () => {
     const errorCheck = (e) => {
         let error = ""
         error = validator(e.target.name, e.target.value);
+        console.log (e.target.name)
+        console.log (e.target.value)
+        console.log (error)
         setUserError((prevState) => ({
             ...prevState,
             [e.target.name + 'Error']: error,
@@ -66,11 +69,13 @@ export const Register = () => {
         }
         registerUser(user)
             .then(resultado => {
-                if (resultado.data.message === "Incorrect data") {
+                if (resultado.data.message === "Error registering user") {
+                    console.log (resultado)
                     setMsgError("Incorrect data or existing user")
                     return;
                 }
                 setTimeout(() => {
+                    console.log (resultado)
                     navigate("/login");
                 }, 500)
             }
