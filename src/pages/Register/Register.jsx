@@ -51,7 +51,6 @@ export const Register = () => {
             ...prevState,
             [e.target.name + 'Error']: error,
         }));
-        console.log (error)
     }
 
     const Submit = () => {
@@ -68,18 +67,15 @@ export const Register = () => {
         registerUser(user)
             .then(resultado => {
                 if (resultado.data.message === "Error registering user") {
-                    console.log (resultado)
                     setMsgError("Incorrect data or existing user")
                     return;
                 }
                 setTimeout(() => {
-                    console.log (resultado)
                     navigate("/login");
                 }, 500)
             }
             )
-            .catch(error => console.log(error),
-            console.log (error));
+            .catch(error => console.log(error));
     }
 
     return (

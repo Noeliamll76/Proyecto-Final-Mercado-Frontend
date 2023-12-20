@@ -25,19 +25,13 @@ export const Login = () => {
   })
 
   const functionHandler = (e) => {
-    setCredenciales((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value
-    }));
+    setCredenciales((prevState) => ({...prevState, [e.target.name]: e.target.value }));
   };
 
   const errorCheck = (e) => {
     let error = "";
     error = validator(e.target.name, e.target.value);
-    setCredencialesError((prevState) => ({
-      ...prevState,
-      [e.target.name + 'Error']: error,
-    }));
+    setCredencialesError((prevState) => ({...prevState, [e.target.name + 'Error']: error,}));
   }
 
   useEffect(() => {
@@ -57,14 +51,13 @@ export const Login = () => {
     }
     logUser(credenciales)
       .then(resultado => {
-        console.log(resultado.data)
         dispatch(login({ credentials: resultado.data }))
         setTimeout(() => {
           resultado.data.data.roles !== "user"
             ? (navigate("/profileStore"))
             : (navigate("/profile"))
         }
-          , 500);
+          , 100);
       })
       .catch(error => {
         setMsgError(error.message)
