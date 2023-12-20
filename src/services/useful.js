@@ -1,3 +1,6 @@
+
+import moment from 'moment';
+
 export const validator = (type, value) => {
 
     switch (type) {
@@ -27,7 +30,6 @@ export const validator = (type, value) => {
 
         case 'phone':
         case 'telefono':
-
             if (! /(?=.*?[0-9])/.test(value) || value.length < 8) {
                 return "Incorrect phone number";
             } else {
@@ -65,12 +67,24 @@ export const validator = (type, value) => {
             const letters = "TRWAGMYFPDXBNJZSQVHLCKET"
             const letter = value.charAt(8).toUpperCase()
             const number = parseInt(value.substr(0, 8), 10)
-            console.log(number)
             const index = number % 23
             if (letters.charAt(index) === letter) {
                 return "";
             } else {
                 return "Invalid DNI";
             };
+
+        case 'birthdate':
+        case 'cumpleaños':
+            const fechaNacimiento = moment(value);
+            const hoy = moment();
+            const edad = hoy.diff(fechaNacimiento, 'years');
+
+            if (edad >= 18) {
+                return "";
+            } else {
+                return "Es menor de edad";
+            }
+
     }
 }

@@ -51,7 +51,7 @@ export const Register = () => {
             ...prevState,
             [e.target.name + 'Error']: error,
         }));
-        
+        console.log (error)
     }
 
     const Submit = () => {
