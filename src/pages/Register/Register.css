@@ -4,8 +4,8 @@
     height: 84vh;
     width: 100vw;
 
-    display: flex;
-    flex-direction: column;
+    display:grid;
+    flex-direction:column;
     justify-content: center;
     align-items: center;
 

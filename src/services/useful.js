@@ -16,6 +16,7 @@ export const validator = (type, value) => {
         case 'surname':
         case 'store_name':
         case 'store_owner':
+        case 'town':
         case 'location':
         case 'address':
             if (value.length > 100) {
@@ -53,5 +54,23 @@ export const validator = (type, value) => {
                 return "Invalid zip code";
             }
 
+        case 'DNI':
+            if (value.length !== 9) {
+                return false;
+            }
+            const dniRegex = /^\d{8}[A-HJ-NP-TV-Z-a-hj-np-tv-z]$/
+            if (!dniRegex.test(value)) {
+                return false;
+            }
+            const letters = "TRWAGMYFPDXBNJZSQVHLCKET"
+            const letter = value.charAt(8).toUpperCase()
+            const number = parseInt(value.substr(0, 8), 10)
+            console.log(number)
+            const index = number % 23
+            if (letters.charAt(index) === letter) {
+                return "";
+            } else {
+                return "Invalid DNI";
+            };
     }
 }

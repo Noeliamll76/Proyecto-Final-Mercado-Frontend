@@ -13,7 +13,7 @@ export const Profile = () => {
 
     const rdxUser = useSelector(userData);
     const token = rdxUser.credentials.token
-
+   
     const navigate = useNavigate();
     const [isEnabled, setIsEnabled] = useState(true);
     const [msgError, setMsgError] = useState();
@@ -49,9 +49,11 @@ export const Profile = () => {
         setMsgError("")
         for (let test in profile) {
             if (profile[test] === "") {
+                console.log (token)
                 getUser(token)
                     .then
                     ((results) => {
+                        console.log(results);
                         setProfile(results.data.data);
                     })
                     .catch((error) => console.log(error));
