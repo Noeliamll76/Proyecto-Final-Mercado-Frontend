@@ -21,3 +21,7 @@ export const updateUser = async (body, token) => {
 export const profileStore = async (token) => {
    return await axios.get(`${hostURL}/stores/profile`, { headers: { Authorization: `Bearer ${token}` } });
 }
+
+export const getGuilds = async () => {
+   return await axios.get(`${hostURL}/allGuilds`, );
+}
