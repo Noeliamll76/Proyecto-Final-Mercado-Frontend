@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { getGuilds } from '../../services/apiCalls';
 import { GuildCard } from '../../common/GuildCard/GuildCard';
+import LoadingSpinner from "../../common/LoadingSpinner/LoadingSpinner";
+import { saveGuild } from "../../pages/guildSlice";
 import "./Guilds.css";
+import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from "react-redux";
 
 export const Guilds = () => {
-
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [guilds, setGuilds] = useState([]);
 
     useEffect(() => {
@@ -26,12 +31,14 @@ export const Guilds = () => {
     }, [guilds]);
 
     const tellMe = (argumento) => {
-        console.log(argumento)
+        dispatch(saveGuild({ infoGuild: argumento }))
+        setTimeout(() => {
+            navigate("/storesByGuild");
+        }, 500);
     }
 
     return (
         <>        
-        <div>ESTOY EN GUILDS</div>
         <div className='cardsDesign'>
              {guilds.length > 0 ? (
                 <div className='guildsRoster'>
@@ -49,7 +56,7 @@ export const Guilds = () => {
                 </div>
             )
                 : (
-                    <div>Esperar datos</div>
+                    <div><LoadingSpinner /></div>
                 )
             }
         </div>

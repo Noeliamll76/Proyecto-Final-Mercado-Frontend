@@ -1,0 +1,26 @@
+
+@keyframes spinner {
+    to { transform: rotate(360deg); }
+  }
+  
+  .spinner {
+    position: relative;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    border: 4px solid green;
+    border-left-color: greenyellow;
+    border-radius: 50%;
+    animation: spinner 1s linear infinite;
+  }
+  
+  /*
+    Centra el spinner en la pantalla
+  */
+  
+  .spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+  }
