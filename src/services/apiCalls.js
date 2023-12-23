@@ -25,3 +25,7 @@ export const profileStore = async (token) => {
 export const getGuilds = async () => {
    return await axios.get(`${hostURL}/allGuilds`, );
 }
+export const getStoresByGuild = async (id) => {
+   return await axios.get(`${hostURL}/allStoresByGuild/${id}`);
+}
+

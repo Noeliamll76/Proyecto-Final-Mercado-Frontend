@@ -6,6 +6,7 @@ import { Register } from '../Register/Register';
 import { Profile } from '../Profile/Profile';
 import { ProfileStore } from '../ProfileStore/ProfileStore';
 import { Guilds } from '../Guilds/Guilds';
+import { StoresByGuild } from '../StoresByGuild/StoresByGuild';
 
 export const Body = () => {
      return (
@@ -17,6 +18,7 @@ export const Body = () => {
                 <Route path="/profile" element={<Profile />}/>
                 <Route path="/profileStore" element={<ProfileStore />}/>
                 <Route path="/guilds" element={<Guilds />}/>
+                <Route path="/storesByGuild" element={<StoresByGuild />}/>
             </Routes>
          </>
      )
