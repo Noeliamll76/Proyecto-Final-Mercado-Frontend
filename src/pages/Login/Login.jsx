@@ -52,10 +52,11 @@ export const Login = () => {
     logUser(credenciales)
       .then(resultado => {
         dispatch(login({ credentials: resultado.data }))
+        console.log (resultado.data.token)
         setTimeout(() => {
           resultado.data.data.roles !== "user"
             ? (navigate("/profileStore"))
-            : (navigate("/profile"))
+            : (navigate("/guilds"))
         }
           , 100);
       })
@@ -65,6 +66,8 @@ export const Login = () => {
   }
 
   return (
+    <>
+    <h2>Debe identificarse para realizar su compra o consultar datos</h2>
     <div className="loginDesign">
 
       <div>Email :
@@ -94,5 +97,6 @@ export const Login = () => {
       <div className='buttonSubmit' onClick={logMe}>Log Me!</div>
       <div>{msgError}</div>
     </div>
+    </>
   )
 }
