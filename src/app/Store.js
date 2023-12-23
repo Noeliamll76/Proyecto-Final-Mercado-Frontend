@@ -2,7 +2,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import userSlice from '../pages/userSlice';
 import guildSlice from '../pages/guildSlice';
-// import storeSlice from '../pages/storeSlice';
+import storeSlice from '../pages/storeSlice';
 // import productSlice from '../pages/productSlice';
 import { combineReducers } from 'redux';
 import storage from 'redux-persist/lib/storage';
@@ -13,7 +13,7 @@ import {thunk} from 'redux-thunk';
 const reducers = combineReducers({
   user: userSlice,
   guild: guildSlice,
-  // store: storeSlice,
+  store: storeSlice,
   // product: productSlice,
 })
 

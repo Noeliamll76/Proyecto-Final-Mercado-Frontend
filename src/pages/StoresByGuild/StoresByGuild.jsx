@@ -3,6 +3,7 @@ import { getStoresByGuild } from '../../services/apiCalls';
 import { StoresCard } from '../../common/StoresCard/StoresCard';
 import LoadingSpinner from "../../common/LoadingSpinner/LoadingSpinner";
 import { guildData } from "../../pages/guildSlice";
+import { saveStore } from "../../pages/storeSlice";
 import "./StoresByGuild.css";
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
@@ -33,10 +34,11 @@ export const StoresByGuild = () => {
     }, [stores]);
 
     const tellMe = (argumento) => {
-        // dispatch(saveStore({ infoStore: argumento }))
-        // setTimeout(() => {
-        //     navigate("/productsStore");
-        // }, 500);
+        dispatch(saveStore({ infoStore: argumento }))
+        setTimeout(() => {
+            navigate("/login");
+            // navigate("/productsStore");
+        }, 500);
         console.log(argumento)
     }
 
