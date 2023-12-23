@@ -29,3 +29,10 @@ export const getStoresByGuild = async (id) => {
    return await axios.get(`${hostURL}/allStoresByGuild/${id}`);
 }
 
+export const getProductsByStore = async (id) => {
+   return await axios.get(`${hostURL}/product/allProductsByStore/${id}`);
+}
+
+export const getImage_productById = async (id) => {
+   return await axios.get(`${hostURL}/getImage_productById/${id}`);
+}

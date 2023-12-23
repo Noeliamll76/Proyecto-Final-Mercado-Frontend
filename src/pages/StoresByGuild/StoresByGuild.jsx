@@ -36,8 +36,7 @@ export const StoresByGuild = () => {
     const tellMe = (argumento) => {
         dispatch(saveStore({ infoStore: argumento }))
         setTimeout(() => {
-            navigate("/login");
-            // navigate("/productsStore");
+               navigate("/productsByStore");
         }, 500);
         console.log(argumento)
     }
