@@ -86,5 +86,19 @@ export const validator = (type, value) => {
                 return "Es menor de edad";
             }
 
+        case 'comment':
+        case 'comentario':
+            if (value.length < 500 || value === '') {
+                return ""
+            } else {
+                return "Comentario demasiado largo"
+            }
+
+        case 'ud':
+            if (value <= 0) {
+                return "Añadir unidades"
+            } else {
+                return ""
+            }
     }
 }

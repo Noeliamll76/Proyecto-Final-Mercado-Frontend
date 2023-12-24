@@ -15,7 +15,7 @@ export const ProductsByStore = () => {
     const dispatch = useDispatch()
     const rdxStore = useSelector(storeData)
     const idStore = rdxStore.infoStore.id
-    const rdxUser = useSelector(userData);
+    const rdxUser = useSelector(userData)
     const token = rdxUser.credentials.token
 
     const [products, setProducts] = useState([]);
@@ -40,11 +40,9 @@ export const ProductsByStore = () => {
 
     const tellMe = (argumento) => {
         if (token) {
-            console.log(token)
             dispatch(saveProduct({ infoProduct: argumento }))
             setTimeout(() => {
-                console.log(" Si hay token crear order " + argumento)
-                navigate("/ordersRegister");
+                navigate("/createOrders");
             }, 500);
         }
         else {

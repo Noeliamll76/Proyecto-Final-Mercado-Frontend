@@ -1,0 +1,18 @@
+.orderDesign {
+    height: 100em;
+    width: 30em;
+
+    border-radius: 1em;
+    display:inline-flexbox;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: rgb(193, 247, 111);
+    color: darkslategray;
+    border: 0.2 solid black;
+
+    transition: 0.5s;
+    margin: 1em;
+    
+}

@@ -36,3 +36,7 @@ export const getProductsByStore = async (id) => {
 export const getImage_productById = async (id) => {
    return await axios.get(`${hostURL}/getImage_productById/${id}`);
 }
+
+export const createOrders = async (body, token) => {
+   return await axios.post(`${hostURL}/order/register`, body, { headers: { Authorization: `Bearer ${token}`, }, })
+}
