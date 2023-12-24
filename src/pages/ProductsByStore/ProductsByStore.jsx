@@ -3,6 +3,7 @@ import { getProductsByStore } from '../../services/apiCalls';
 import { ProductCard } from '../../common/ProductCard/ProductCard';
 import LoadingSpinner from "../../common/LoadingSpinner/LoadingSpinner";
 
+import { saveProduct } from "../../pages/productSlice";
 import { storeData } from "../../pages/storeSlice";
 import { userData } from "../../pages/userSlice";
 import "./ProductsByStore.css";
@@ -16,7 +17,7 @@ export const ProductsByStore = () => {
     const idStore = rdxStore.infoStore.id
     const rdxUser = useSelector(userData);
     const token = rdxUser.credentials.token
-   
+
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -38,18 +39,17 @@ export const ProductsByStore = () => {
     }, [products]);
 
     const tellMe = (argumento) => {
-        if (token){
-            console.log (token)
-            // dispatch(saveProducts({ infoProduct: argumento }))
-            // setTimeout(() => {
-                console.log (" Si hay token crear order ")
-                // navigate("/ordersRegister");
-            // }, 500);
+        if (token) {
+            console.log(token)
+            dispatch(saveProduct({ infoProduct: argumento }))
+            setTimeout(() => {
+                console.log(" Si hay token crear order " + argumento)
+                navigate("/ordersRegister");
+            }, 500);
         }
-        else{
-            navigate ("/login")
+        else {
+            navigate("/login")
         }
-        console.log(argumento)
     }
 
     return (
@@ -59,8 +59,8 @@ export const ProductsByStore = () => {
                     <div className='productsRoster'>
                         {products.map(product => {
                             return (
-                                < 
-                                ProductCard
+                                <
+                                    ProductCard
                                     key={product.id}
                                     image_id={product.image_id}
                                     category={product.category}
