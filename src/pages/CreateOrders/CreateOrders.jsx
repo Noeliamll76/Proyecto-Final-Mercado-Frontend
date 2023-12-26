@@ -3,17 +3,19 @@ import './CreateOrders.css';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { validator } from "../../services/useful";
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { productData } from '../productSlice';
 import { userData } from '../userSlice';
+import { saveBasket } from '../basketSlice';
 import { ProductCard } from '../../common/ProductCard/ProductCard';
 import { CustomInput } from "../../common/CustomInput/CustomInput";
-import { createOrders } from '../../services/apiCalls';
+import { createOrders, ordersBasket } from '../../services/apiCalls';
 
 
 export const CreateOrders = () => {
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const rdxProduct = useSelector(productData)
     const productId = rdxProduct.infoProduct.id
     const rdxUser = useSelector(userData)
@@ -60,11 +62,9 @@ export const CreateOrders = () => {
                 comment: order.comment,
             }
         }
-     
-        for (let test in order)
-            {if (order.ud[test] === "") { return; } }
-        for (let test in orderError) 
-            {if (orderError[test] !== "") { return; } }
+
+        for (let test in order) { if (order.ud[test] === "") { return; } }
+        for (let test in orderError) { if (orderError[test] !== "") { return; } }
 
         createOrders(body, token)
             .then(resultado => {
@@ -73,6 +73,12 @@ export const CreateOrders = () => {
                     return;
                 }
                 setTimeout(() => {
+                    ordersBasket(token)
+                        .then(orders => {
+                            dispatch(saveBasket({ infoBasket: orders.data.data }))
+                            console.log(orders.data.data)
+                        })
+                        .catch(error => console.log(error));
                     navigate("/productsByStore");
                 }, 500)
             }

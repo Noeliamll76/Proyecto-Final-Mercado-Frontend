@@ -4,6 +4,7 @@ import './Header.css'
 import { LinkButton } from '../LinkButton/LinkButton'
 import { useSelector, useDispatch } from "react-redux";
 import { logout, userData } from "../../pages/userSlice";
+import { basketData } from "../../pages/basketSlice";
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
@@ -12,6 +13,9 @@ export const Header = () => {
     const dispatch = useDispatch();
 
     const rdxCredentialsUser = useSelector(userData);
+    const rdxInfoBasket = useSelector(basketData);
+    console.log (rdxInfoBasket)
+    console.log (rdxCredentialsUser.credentials)
 
     const logOutMe = () => {
         dispatch(logout({ credentials: "" }))
@@ -29,11 +33,14 @@ export const Header = () => {
             ) : (
                 <>
                     <LinkButton path={"/profile"} title={"Profile"} />
-                    
+
                     <div onClick={logOutMe}>
                         <LinkButton path={"/"} title={"Log out"} />
                     </div>
-                    <LinkButton path={"/profileOrders"} title={"CESTA"} />
+                    {!rdxInfoBasket?.info
+                        ? (<LinkButton path={"/profileOrders"} title={"CESTA"} />)
+                        : ('') }
+
                 </>
             )}
         </div>
