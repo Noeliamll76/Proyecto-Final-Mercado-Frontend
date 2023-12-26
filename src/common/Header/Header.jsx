@@ -38,7 +38,7 @@ export const Header = () => {
                         <LinkButton path={"/"} title={"Log out"} />
                     </div>
                     {!rdxInfoBasket?.info
-                        ? (<LinkButton path={"/profileOrders"} title={"CESTA"} />)
+                        ? (<LinkButton path={"/profileBasket"} title={"CESTA"} />)
                         : ('') }
 
                 </>

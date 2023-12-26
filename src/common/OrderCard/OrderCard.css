@@ -1,0 +1,35 @@
+
+.ordersCardDesign {
+    height: 7em;
+    width: 100em;
+
+    border-radius: 1em;
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    flex-direction: row;
+
+    background-color: rgb(193, 247, 111);
+    color: darkslategray;
+    border: 0.2 solid black;
+
+    transition: 0.5s;
+    margin: 1em;
+    
+}
+
+.ordersCardDesign:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.selectedCard {
+    background-color: darkcyan;
+    color: white;
+}
+
+.avatar {
+    height: 5em;
+    width: 5em;
+}

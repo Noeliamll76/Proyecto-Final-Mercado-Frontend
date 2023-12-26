@@ -43,3 +43,6 @@ export const createOrders = async (body, token) => {
 export const ordersBasket = async (token) => {
    return await axios.get(`${hostURL}/order/basket`, { headers: { Authorization: `Bearer ${token}` } });
 }
+export const productProfileById = async (id,token) => {
+   return await axios.get(`${hostURL}/product/profile/${id}`,{ headers: { Authorization: `Bearer ${token}` ,}, })
+}

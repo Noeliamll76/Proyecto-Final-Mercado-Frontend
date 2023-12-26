@@ -20,16 +20,17 @@ export const Guilds = () => {
                     results => {
                         setGuilds(results.data.data)
                         console.log (results)
-                        }
+                    }
                     )
                     .catch(error => {
                         console.log(error)
                     }
                     )
-            }, 400)
-        }
-    }, [guilds]);
-
+                }, 400)
+            }
+        }, [guilds]);
+        
+        console.log (guilds)
     const tellMe = (argumento) => {
         dispatch(saveGuild({ infoGuild: argumento }))
         setTimeout(() => {
