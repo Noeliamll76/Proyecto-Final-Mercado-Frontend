@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import './Profile.css'
 import { CustomInput } from "../../common/CustomInput/CustomInput";
-import { getUser, updateUser } from "../../services/apiCalls";
+import { getUser, updateUser} from "../../services/apiCalls";
 import { validator } from "../../services/useful";
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from "react-redux";
@@ -15,6 +15,7 @@ export const Profile = () => {
     const token = rdxUser.credentials.token
    
     const navigate = useNavigate();
+ 
     const [isEnabled, setIsEnabled] = useState(true);
     const [msgError, setMsgError] = useState();
 
@@ -49,17 +50,15 @@ export const Profile = () => {
         setMsgError("")
         for (let test in profile) {
             if (profile[test] === "") {
-                console.log (token)
                 getUser(token)
                     .then
                     ((results) => {
-                        console.log(results);
-                        setProfile(results.data.data);
+                       setProfile(results.data.data);
                     })
                     .catch((error) => console.log(error));
             }
         }
-    }, [profile]);
+    }, []);
 
     const errorCheck = (e) => {
         let error = "";
@@ -88,12 +87,13 @@ export const Profile = () => {
                 email: profile.email,
                 phone: profile.phone,
             };
+            console.log (body)
             const response = await updateUser(body, token);
             setMsgError(response.data.message)
             setTimeout(() => {
                 setIsEnabled(true)
-                navigate("/");
-            }, 1000);
+                navigate("/login");
+            }, 400);
         }
         catch (error) { console.log(error) }
     };

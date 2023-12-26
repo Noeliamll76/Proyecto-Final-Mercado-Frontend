@@ -16,8 +16,6 @@ export const CreateOrders = () => {
     const navigate = useNavigate()
     const rdxProduct = useSelector(productData)
     const productId = rdxProduct.infoProduct.id
-    console.log(rdxProduct.infoProduct)
-    console.log(productId)
     const rdxUser = useSelector(userData)
     const token = rdxUser.credentials.token
 
@@ -51,7 +49,7 @@ export const CreateOrders = () => {
     }
 
     const Submit = () => {
-        const body = {
+        let body = {
             product_id: productId,
             ud: order.ud,
         }
@@ -63,16 +61,10 @@ export const CreateOrders = () => {
             }
         }
      
-        for (let test in order) {
-            if (order.ud[test] === "") {
-                return;
-            }
-        }
-        for (let test in orderError) {
-            if (orderError[test] !== "") {
-                return;
-            }
-        }
+        for (let test in order)
+            {if (order.ud[test] === "") { return; } }
+        for (let test in orderError) 
+            {if (orderError[test] !== "") { return; } }
 
         createOrders(body, token)
             .then(resultado => {
@@ -93,7 +85,7 @@ export const CreateOrders = () => {
 
     return (
         <>
-            <div classOrder='orderDesign'>
+            <div className='orderDesign'>
                 <div className='cardsDesign'>
                     <ProductCard
                         key={rdxProduct.infoProduct.id}
