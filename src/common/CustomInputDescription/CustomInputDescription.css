@@ -1,13 +1,13 @@
 
-.inputDesign {
+.inputDesDesign {
 
     height: 2em;
-    width: 25em;
+    width: 30em;
     border-radius: 1em;
     border: 0.5 solid darkcyan;
     margin-bottom: 4em;
 }
 
-.inputDesignError {
+.inputDesDesignError {
     border: 0.7em red solid;
 }

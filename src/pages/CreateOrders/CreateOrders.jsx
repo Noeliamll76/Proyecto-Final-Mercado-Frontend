@@ -8,7 +8,8 @@ import { productData } from '../productSlice';
 import { userData } from '../userSlice';
 import { saveBasket } from '../basketSlice';
 import { ProductCard } from '../../common/ProductCard/ProductCard';
-import { CustomInput } from "../../common/CustomInput/CustomInput";
+import { CustomInputDescription } from "../../common/CustomInputDescription/CustomInputDescription";
+import { CustomInputUd } from "../../common/CustomInputUd/CustomInputUd";
 import { createOrders, ordersBasket } from '../../services/apiCalls';
 
 
@@ -92,7 +93,7 @@ export const CreateOrders = () => {
     return (
         <>
             <div className='orderDesign'>
-                <div className='cardsDesign'>
+                 <div className='orderRoster'>
                     <ProductCard
                         key={rdxProduct.infoProduct.id}
                         image_id={rdxProduct.infoProduct.image_id}
@@ -104,10 +105,10 @@ export const CreateOrders = () => {
                         selected={"selectedCard"}
                         selectFunction={() => tellMe(rdxProduct)}
                     />
-                </div>
+                          
                 <div>Ud :
-                    <CustomInput
-                        design={`inputDesign ${orderError.udError !== "" ? 'inputDesignError' : ''}`}
+                    <CustomInputUd
+                        design={`inputUdDesign ${orderError.udError !== "" ? 'inputUdDesignError' : ''}`}
                         type={"ud"}
                         name={"ud"}
                         placeholder={">0"}
@@ -117,22 +118,22 @@ export const CreateOrders = () => {
                     <div className='errorMsg'>{orderError.udError}</div>
                 </div>
 
-                <div>Comentario de preparación :
-                    <CustomInput
-                        design={`inputDesign ${orderError.commentError !== "" ? 'inputDesignError' : ''}`}
+                <div>Comentario :
+                    <CustomInputDescription
+                        design={`inputDesDesign ${orderError.commentError !== "" ? 'inputDesDesignError' : ''}`}
                         type={"comment"}
                         name={"comment"}
-                        placeholder={"Forma de preparación"}
+                        placeholder={"Sugerencia de preparación"}
                         functionProp={functionHandler}
                         functionBlur={errorCheck}
                     />
                     <div className='errorMsg'>{orderError.commentError}</div>
                 </div>
 
-
                 <div className='errorMsg'>{msgError}</div>
 
                 <div className='buttonSubmit' onClick={Submit}>AÑADIR A LA CESTA</div>
+            </div>
             </div>
         </>
     )

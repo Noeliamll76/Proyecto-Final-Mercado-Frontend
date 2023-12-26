@@ -1,0 +1,22 @@
+.cardsDesign {
+    height: 88vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    background-color: rgb(230, 149, 42);
+    color: darkslategray;
+  
+}
+
+.productsRoster {
+    margin: 1em;
+    gap: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}

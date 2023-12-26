@@ -29,10 +29,10 @@ export const ProductCard = ({ image_id, category_id, name, variety, origin, pric
         <div className={`productsCardDesign ${!change ? selected : ''}`} onClick={callSelectClick}>
             <div><img className='avatar' src={image} /></div>
             <div>{category_id}</div>
-            <div>{name}</div>
-            <div>{variety}</div>
-            <div>{origin}</div>
-            <div>{price}</div>
+            <div>Producto: {name}</div>
+            <div>Variedad: {variety}</div>
+            <div>Origen: {origin}</div>
+            <div>Precio: {price} €</div>
         </div>
     )
 }

@@ -1,5 +1,5 @@
 
-.storesCardDesign {
+.productsCardDesign {
     height: 22em;
     width: 20em;
 
@@ -18,7 +18,7 @@
     
 }
 
-.storesCardDesign:hover {
+.productsCardDesign:hover {
     transform: scale(1.1);
     transition: 0.5s;
     cursor: pointer;

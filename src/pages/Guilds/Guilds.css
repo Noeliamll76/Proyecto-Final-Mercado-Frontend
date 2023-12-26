@@ -16,8 +16,8 @@
 .guildsRoster {
     margin: 1em;
     gap: 1em;
-    display: flex;
-    flex-wrap: wrap;
+    display: flex; 
+    flex-wrap: wrap; 
     justify-content: center;
 
 }
