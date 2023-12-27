@@ -1,0 +1,49 @@
+.confirmBasketDesign {
+    height: 100vh;
+    width: 100vw;
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(223, 223, 45);
+
+    overflow-y: scroll;
+}
+
+.confirmBasketBox{
+    height: 25em;
+    width: 42em;
+   
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgb(223, 223, 45); */
+}
+.cardSubmit {
+    
+    width: 300px;
+    height: 300px;
+    color: darkslategray;
+    font-size: large;
+    justify-content: center;
+    align-items: center;
+}
+
+.tarjetDesign1{
+    height: 20em;
+    width: 10em;
+    gap: 3.5em;
+    
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+
+.tarjetDesign2{
+    height: 20em;
+    width: 20em;
+    display: flex;
+    flex-direction: column;
+}

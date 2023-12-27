@@ -11,6 +11,7 @@ import { ProductsByStore } from '../ProductsByStore/ProductsByStore';
 import { CreateOrders } from '../CreateOrders/CreateOrders';
 import { ProfileBasket } from '../ProfileBasket/ProfileBasket';
 import { UpdateOrders } from '../UpdateOrders/UpdateOrders';
+import { ConfirmBasket } from '../ConfirmBasket/ConfirmBasket';
 
 export const Body = () => {
      return (
@@ -27,6 +28,7 @@ export const Body = () => {
                 <Route path="/createOrders" element={<CreateOrders />}/>
                 <Route path="/profileBasket" element={<ProfileBasket />}/>
                 <Route path="/updateOrders" element={<UpdateOrders />}/>
+                <Route path="/confirmBasket" element={<ConfirmBasket />}/>
             </Routes>
          </>
      )

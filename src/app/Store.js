@@ -6,6 +6,7 @@ import storeSlice from '../pages/storeSlice';
 import productSlice from '../pages/productSlice';
 import basketSlice from '../pages/basketSlice';
 import orderSlice from '../pages/orderSlice';
+import total_importSlice from '../pages/total_importSlice';
 import { combineReducers } from 'redux';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
@@ -19,6 +20,7 @@ const reducers = combineReducers({
   product: productSlice,
   basket: basketSlice,
   order: orderSlice,
+  total_import: total_importSlice,
 })
 
 const persistConfig = {

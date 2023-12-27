@@ -34,12 +34,10 @@ export const OrderCard = ({ product_id, ud, price, importe, comment, selected, s
             .then(
                 results => {
                     setImage(results.data.data)
-
                 })
             .catch(error => { console.log(error) }
             )
     }
-
 
     const callSelectClick = () => {
         dispatch(saveProduct({ infoProduct: product }))

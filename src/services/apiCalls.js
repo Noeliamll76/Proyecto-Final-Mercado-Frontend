@@ -52,3 +52,6 @@ export const deleteOrder = async (id,token) => {
 export const orderUpdate = async (id, body, token) => {
    return await axios.put(`${hostURL}/order/update/${id}`, body, { headers: { Authorization: `Bearer ${token}`, }, })
 }
+export const confirmBasket = async (token) => {
+   return await axios.post(`${hostURL}/confirmBasket`, {}, { headers: { Authorization: `Bearer ${token}` }});
+}

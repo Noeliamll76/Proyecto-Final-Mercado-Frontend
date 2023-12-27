@@ -16,10 +16,10 @@ export const UpdateOrders = () => {
 
     const navigate = useNavigate()
     const rdxProduct = useSelector(productData)
-      
+    
     const rdxUser = useSelector(userData)
     const token = rdxUser.credentials.token
-
+    
     const rdxOrder = useSelector(orderData)
     const orderId = rdxOrder.infoOrder.id
 
@@ -141,7 +141,6 @@ export const UpdateOrders = () => {
                 </div>
 
                 <div className="button1Submit" onClick={() => sendData()}>UPDATE </div>
-
                 <div className="buttonDelete" onClick={() => deleteData()}> X </div>
             </div>
         </div>

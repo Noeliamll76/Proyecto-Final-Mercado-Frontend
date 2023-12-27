@@ -7,7 +7,7 @@
     align-items: center;
     flex-direction: column; 
  
-    background-color: rgb(193, 247, 111);
+    background-color: rgb(247, 195, 100);
     color: darkslategray;
     border: 0.2 solid black;
 
@@ -41,12 +41,13 @@
 .button1Submit:hover {
     transition: 0.4s;
     background-color: greenyellow;
+    color: darkgreen;
     cursor: pointer;
 }
 
 .buttonDelete {
     height: 2em;
-    width: 8em;
+    width: 2em;
     margin-top: 0.5em;
     border-radius: 1em;
     background-color: red;
@@ -58,8 +59,9 @@
     align-items: center;
 }
 
-.buttonSubmit:hover {
+.buttonDelete:hover {
     transition: 0.4s;
     background-color: lightcoral;
+    color: black;
     cursor: pointer;
 }
