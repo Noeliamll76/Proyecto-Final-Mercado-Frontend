@@ -1,0 +1,65 @@
+.orderDesign {
+    height: 88em;
+    width: 100vw;
+    
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column; 
+ 
+    background-color: rgb(193, 247, 111);
+    color: darkslategray;
+    border: 0.2 solid black;
+
+    transition: 0.5s;
+    margin: 1em;
+    
+}
+
+.orderForm {
+    margin: 1em;
+    gap: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.button1Submit {
+    height: 2em;
+    width: 8em;
+    margin-top: 0.5em;
+    border-radius: 1em;
+    background-color: green;
+    color: white;
+    font-size: large;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button1Submit:hover {
+    transition: 0.4s;
+    background-color: greenyellow;
+    cursor: pointer;
+}
+
+.buttonDelete {
+    height: 2em;
+    width: 8em;
+    margin-top: 0.5em;
+    border-radius: 1em;
+    background-color: red;
+    color: white;
+    font-size: large;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonSubmit:hover {
+    transition: 0.4s;
+    background-color: lightcoral;
+    cursor: pointer;
+}

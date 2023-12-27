@@ -18,5 +18,18 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
 
+.orderDelete {
+    height: 2em;
+    width: 8em;
+    margin-top: 0.5em;
+    border-radius: 1em;
+    background-color: red;
+    color: white;
+    font-size: large;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

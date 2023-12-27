@@ -14,9 +14,7 @@ export const Header = () => {
 
     const rdxCredentialsUser = useSelector(userData);
     const rdxInfoBasket = useSelector(basketData);
-    console.log (rdxInfoBasket)
-    console.log (rdxCredentialsUser.credentials)
-
+    
     const logOutMe = () => {
         dispatch(logout({ credentials: "" }))
         navigate("/")

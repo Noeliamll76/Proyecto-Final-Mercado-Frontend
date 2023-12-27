@@ -5,6 +5,7 @@ import guildSlice from '../pages/guildSlice';
 import storeSlice from '../pages/storeSlice';
 import productSlice from '../pages/productSlice';
 import basketSlice from '../pages/basketSlice';
+import orderSlice from '../pages/orderSlice';
 import { combineReducers } from 'redux';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
@@ -17,6 +18,7 @@ const reducers = combineReducers({
   store: storeSlice,
   product: productSlice,
   basket: basketSlice,
+  order: orderSlice,
 })
 
 const persistConfig = {

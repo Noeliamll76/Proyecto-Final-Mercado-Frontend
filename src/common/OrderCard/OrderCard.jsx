@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { getImage_productById } from '../../services/apiCalls';
 import { productProfileById } from '../../services/apiCalls';
 import { userData } from '../../pages/userSlice';
-import { useSelector } from "react-redux";
+import { saveProduct } from '../../pages/productSlice';
+import { useSelector, useDispatch } from "react-redux";
 
 import './OrderCard.css';
 
 export const OrderCard = ({ product_id, ud, price, importe, comment, selected, selectFunction }) => {
 
+    const dispatch = useDispatch()
     const rdxUser = useSelector(userData)
     const token = rdxUser.credentials.token
 
@@ -20,20 +22,27 @@ export const OrderCard = ({ product_id, ud, price, importe, comment, selected, s
             .then(
                 productProfile => {
                     setProduct(productProfile.data.data)
+                    showImage(productProfile.data.data)
                 }
             )
             .catch(error => { console.log(error) }
             )
-        getImage_productById(product.image_id)
+    }, []);
+
+    const showImage = (data) => {
+        getImage_productById(data.image_id)
             .then(
                 results => {
                     setImage(results.data.data)
+
                 })
             .catch(error => { console.log(error) }
             )
-    }, []);
+    }
+
 
     const callSelectClick = () => {
+        dispatch(saveProduct({ infoProduct: product }))
         setChange(!change)
         selectFunction()
     }

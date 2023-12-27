@@ -109,7 +109,6 @@ export const Profile = () => {
                         }`}
                     type={"text"}
                     name={"name"}
-                    // placeholder={profile.name}
                     value={profile.name}
                     functionProp={functionHandler}
                     functionBlur={errorCheck}
@@ -126,7 +125,6 @@ export const Profile = () => {
                         }`}
                     type={"email"}
                     name={"email"}
-                    // placeholder={profile.email}
                     value={profile.email}
                     functionProp={functionHandler}
                     functionBlur={errorCheck}
@@ -141,7 +139,6 @@ export const Profile = () => {
                         }`}
                     type={"text"}
                     name={"phone"}
-                    // placeholder={profile.phone}
                     value={profile.phone}
                     functionProp={functionHandler}
                     functionBlur={errorCheck}

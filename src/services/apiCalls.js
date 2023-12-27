@@ -46,3 +46,9 @@ export const ordersBasket = async (token) => {
 export const productProfileById = async (id,token) => {
    return await axios.get(`${hostURL}/product/profile/${id}`,{ headers: { Authorization: `Bearer ${token}` ,}, })
 }
+export const deleteOrder = async (id,token) => {
+   return await axios.delete(`${hostURL}/order/delete/${id}`,{ headers: { Authorization: `Bearer ${token}` ,}, })
+}
+export const orderUpdate = async (id, body, token) => {
+   return await axios.put(`${hostURL}/order/update/${id}`, body, { headers: { Authorization: `Bearer ${token}`, }, })
+}

@@ -4,6 +4,7 @@ import "./ProfileBasket.css";
 import { ordersBasket } from '../../services/apiCalls';
 import { basketData } from '../basketSlice';
 import { userData } from '../userSlice';
+import { orderData, saveOrder } from '../orderSlice';
 import { OrderCard } from '../../common/OrderCard/OrderCard';
 
 import { useNavigate } from 'react-router-dom';
@@ -16,10 +17,10 @@ export const ProfileBasket = () => {
     const rdxBasket = useSelector(basketData)
     const rdxUser = useSelector(userData)
     const token = rdxUser.credentials.token
-   
-    const [orders, setOrders] = useState([]);
-    const [msgError, setMsgError] = useState();
 
+    const [orders, setOrders] = useState([]);
+    const [totalImporte, setTotalImporte] = useState(0);
+    
 
     useEffect(() => {
         if (orders.length === 0) {
@@ -27,7 +28,7 @@ export const ProfileBasket = () => {
                 .then(
                     results => {
                         setOrders(results.data.data)
-                        console.log(results.data.data)
+                        calcularTotalImporte(results.data.data)
                     })
                 .catch(error => {
                     console.log(error)
@@ -35,10 +36,22 @@ export const ProfileBasket = () => {
         }
         // }
     }, []);
-    console.log(orders)
+
+    const calcularTotalImporte = (data) => {
+        let total = 0;
+        data.forEach(order => {
+            total += order.import;
+            console.log (total)
+        });
+        setTotalImporte(total);
+    }
 
     const tellMe = (argumento) => {
         console.log(argumento)
+        dispatch(saveOrder({ infoOrder: argumento }))
+        setTimeout(() => {
+            navigate("/UpdateOrders");
+        }, 500);
     }
 
     return (
@@ -59,13 +72,12 @@ export const ProfileBasket = () => {
                                     selected={"selectedCard"}
                                     selectFunction={() => tellMe(order)}
                                 />
-
                             )
                         })
                         }
-                        <div>IMPORTE TOTAL: </div>
+                        <h3>IMPORTE TOTAL: {totalImporte.toFixed(2)} €</h3>
                     </div>
-                )
+                ) 
                     : (
                         <div><LoadingSpinner /></div>
                     )

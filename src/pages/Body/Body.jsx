@@ -10,6 +10,7 @@ import { StoresByGuild } from '../StoresByGuild/StoresByGuild';
 import { ProductsByStore } from '../ProductsByStore/ProductsByStore';
 import { CreateOrders } from '../CreateOrders/CreateOrders';
 import { ProfileBasket } from '../ProfileBasket/ProfileBasket';
+import { UpdateOrders } from '../UpdateOrders/UpdateOrders';
 
 export const Body = () => {
      return (
@@ -25,6 +26,7 @@ export const Body = () => {
                 <Route path="/productsByStore" element={<ProductsByStore />}/>
                 <Route path="/createOrders" element={<CreateOrders />}/>
                 <Route path="/profileBasket" element={<ProfileBasket />}/>
+                <Route path="/updateOrders" element={<UpdateOrders />}/>
             </Routes>
          </>
      )
