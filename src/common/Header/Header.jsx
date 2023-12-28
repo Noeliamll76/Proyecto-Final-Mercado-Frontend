@@ -26,10 +26,13 @@ export const Header = () => {
             <div className="headerDesign">
                 <div className='headerBox'>
                     <div className="headerLogo">
-                        <div><img className="logoDesign" src={logoMercat} /></div>
+                        <div>
+                            <img className="logoDesign" src={logoMercat} />
+                        </div>
                     </div>
 
                     <div className="headerButtons">
+                        <LinkButton path={"/guilds"} title={"COMPRAR"} />
                         <LinkButton path={"/"} title={"Home"} />
                         {!rdxCredentialsUser?.credentials.token ? (
                             <>
@@ -45,7 +48,7 @@ export const Header = () => {
                                 </div>
                                 {!rdxInfoBasket?.info
                                     ? (<LinkButton path={"/profileBasket"} title={"CESTA"} />)
-                                    : ('')}
+                                    : ("")}
                             </>
                         )}
                     </div>

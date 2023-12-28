@@ -5,6 +5,7 @@
 
     background-color: whitesmoke;
     color: darkslategray;
+    font-size: large;
     font-weight: bold;
 
     display: flex;
@@ -29,7 +30,7 @@
 
 .logoDesign{
     height: 10vh;
-    width: 30vw;
+    width: 12vw;
 }
 .headerLogo {
     height: 12vh;

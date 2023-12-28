@@ -3,21 +3,42 @@
     width: 100vw;
    
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: rgb(223, 223, 45);
 
-    /* background-image: url(../../../public/img/tatouage-homme1.jpg);
-    background-repeat: no-repeat;
-    background-size: cover; */
     overflow-y: scroll;
 }
 
-.cardSubmit {
-    
-    width: 300px;
-    height: 300px;
-    color: darkslategray;
-    font-size: large;
+.homePantallaInicio {
+    height: 100vh;
+    width: auto;
+   
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+   
+    background-repeat: no-repeat;
+    background-size: cover; 
+    overflow-y: scroll;
 }
+.homeMap {
+    height: 100vh;
+    width: auto;
+   
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+   
+    background-repeat: no-repeat;
+    background-size: cover; 
+    overflow-y: scroll;
+}
+.inicioDesign {
+    height: 86vh;
+    width: 100vw;
+}
+
