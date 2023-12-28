@@ -1,4 +1,4 @@
-.confirmBasketDesign {
+.confirmPayDesign {
     height: 100vh;
     width: 100vw;
    
@@ -6,12 +6,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(223, 223, 45);
+    background-color: rgb(213, 246, 246);
 
     overflow-y: scroll;
 }
 
-.confirmBasketBox{
+.confirmPayBox{
     height: 25em;
     width: 42em;
    
@@ -46,4 +46,41 @@
     width: 20em;
     display: flex;
     flex-direction: column;
+}
+
+.contenedorPayBasket{
+    height:80vh;
+    width: 100vw;
+   
+    display: flex;
+    flex-direction: row;
+    
+}
+.contPayBasket1{
+    height:60vh;
+    width: 50vw;
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.contPayBasket2{
+    height:60vh;
+    width: 50vw;
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.basketBox1{
+    height: 100%;
+    width: 50vw;
+   
+}
+.basketBox1-1{
+    height: 55vh;
+    width: 40vw;
+   
 }

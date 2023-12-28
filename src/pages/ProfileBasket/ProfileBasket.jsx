@@ -72,10 +72,12 @@ export const ProfileBasket = () => {
             <div className='cardsBasketDesign'>
                 {orders.length > 0 ? (
                     <div className='contenedorBasket1'>
+
                         <div className='basketBox1'>
-                        <div><img className="basketBox1-1" src={bienvenida} /></div>
+                            <div><img className="basketBox1-1" src={bienvenida} /></div>
 
                         </div>
+                        
                         <div className='basketRoster'>
                             {orders.map(order => {
                                 return (
