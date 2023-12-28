@@ -1,4 +1,4 @@
-.cardsDesign {
+.cardsBasketDesign {
     height: 88vh;
     width: 100vw;
 
@@ -7,19 +7,42 @@
     justify-content: flex-start;
     align-items: center;
 
-    background-color: white;
+    background-color:white;
     color: darkslategray;
   
 }
+.contenedorBasket1{
+    height:95vh;
+    width: 100vw;
+   
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.basketBox1{
+    height: 100%;
+    width: 50vw;
+    /* display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; */
+}
 
-.productsRoster {
+.basketRoster {
+    height: 100%;
+    width: 50%;
     margin: 1em;
     gap: 1em;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
 }
 
+.basketBox1-1 {
+    width: 88%;
+    height: 100%;
+} 
 .orderDelete {
     height: 2em;
     width: 8em;

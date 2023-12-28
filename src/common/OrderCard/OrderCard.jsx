@@ -52,8 +52,7 @@ export const OrderCard = ({ product_id, ud, price, importe, comment, selected, s
                 Ud: {ud},
                 Precio: {price} €,
                 Importe: {importe} €</h4>
-
-            <div>Comentario: {comment} </div>
+            <div> Comentario: {comment} </div>
         </div>
     )
 }

@@ -1,15 +1,15 @@
 
 .ordersCardDesign {
     height: 7em;
-    width: 100em;
+    width: 50em;
 
     border-radius: 1em;
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: baseline;
-    flex-direction: row;
 
-    background-color: rgb(193, 247, 111);
+    background-color: rgb(213, 246, 246);
     color: darkslategray;
     border: 0.2 solid black;
 
