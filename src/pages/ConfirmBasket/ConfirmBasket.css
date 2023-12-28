@@ -19,8 +19,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    /* background-color: rgb(223, 223, 45); */
-}
+  }
 .cardSubmit {
     
     width: 300px;
@@ -83,4 +82,25 @@
     height: 55vh;
     width: 40vw;
    
+}
+.buttonSubmit {
+
+    height: 3em;
+    width: 8em;
+
+    border-radius: 1em;
+    background-color: crimson;
+    color: white;
+    font-weight: bolder;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonSubmit:hover {
+
+    transition: 0.4s;
+    background-color: lightcoral;
+    cursor: pointer;
 }

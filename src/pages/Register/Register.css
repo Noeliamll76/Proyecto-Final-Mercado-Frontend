@@ -1,19 +1,42 @@
 
 .registerDesign {
 
-    height: 84vh;
+    height: 100vh;
     width: 100vw;
 
-    display:grid;
+    display:flex;
     flex-direction:column;
     justify-content: center;
     align-items: center;
-
-    background-color: beige;
-    color: darkslategray;
-    font-size: medium;
-   
+    background-color: rgb(213, 246, 246);
+       
     overflow-y: scroll;
+}
+
+.containerRegisterDesign{
+    height: 47em;
+    width: 50em;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+   
+}
+.containerTitle{
+    height: 45em;
+    width: 15em;
+    gap: 3.5em;
+    
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+} 
+.containerText{
+    height: 45em;
+    width: 20em;
+    display: flex;
+    flex-direction: column;
 }
 
 .errorMsg {
