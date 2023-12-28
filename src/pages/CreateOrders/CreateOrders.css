@@ -1,13 +1,14 @@
-.orderDesign {
+.createOrderDesign {
     height: 88em;
     width: 100vw;
     
     display:flex;
-    justify-content: flex-start;
-    align-items: center;
     flex-direction: column; 
+    justify-content: flex-start;
+    align-content: center;
+    align-items: start;
  
-    background-color: rgb(193, 247, 111);
+    
     color: darkslategray;
     border: 0.2 solid black;
 
@@ -15,13 +16,37 @@
     margin: 1em;
     
 }
+.boxContainer {
+    height: 30em;
+width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
 
+.createOrderBox1{
+    height: 25em;
+    width: 40em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.createOrderBox2{
+    height: 25em;
+    width: 40em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
 .orderRoster {
     margin: 1em;
     gap: 1em;
     display: flex;
-    flex-direction: row;
-    align-items: baseline;
+   justify-content: center;
 
 
 }

@@ -92,49 +92,56 @@ export const CreateOrders = () => {
 
     return (
         <>
-            <div className='orderDesign'>
-                 <div className='orderRoster'>
-                    <ProductCard
-                        key={rdxProduct.infoProduct.id}
-                        image_id={rdxProduct.infoProduct.image_id}
-                        category={rdxProduct.infoProduct.category}
-                        name={rdxProduct.infoProduct.name}
-                        variety={rdxProduct.infoProduct.variety}
-                        origin={rdxProduct.infoProduct.origin}
-                        price={rdxProduct.infoProduct.price}
-                        selected={"selectedCard"}
-                        selectFunction={() => tellMe(rdxProduct)}
-                    />
-                          
-                <div>Ud :
-                    <CustomInputUd
-                        design={`inputUdDesign ${orderError.udError !== "" ? 'inputUdDesignError' : ''}`}
-                        type={"ud"}
-                        name={"ud"}
-                        placeholder={">0"}
-                        functionProp={functionHandler}
-                        functionBlur={errorCheck}
-                    />
-                    <div className='errorMsg'>{orderError.udError}</div>
+            <div className='createOrderDesign'>
+                <div className='boxContainer'>
+
+                    <div className='createOrderBox1'>
+                        <div className='orderRoster'>
+                            <ProductCard
+                                key={rdxProduct.infoProduct.id}
+                                image_id={rdxProduct.infoProduct.image_id}
+                                category={rdxProduct.infoProduct.category}
+                                name={rdxProduct.infoProduct.name}
+                                variety={rdxProduct.infoProduct.variety}
+                                origin={rdxProduct.infoProduct.origin}
+                                price={rdxProduct.infoProduct.price}
+                                selected={"selectedCard"}
+                                selectFunction={() => tellMe(rdxProduct)}
+                            />
+                        </div>
+                    </div>
+
+                    <div className='createOrderBox2'>
+                        <h3>Ud :  
+                            <CustomInputUd
+                                design={`inputUdDesign ${orderError.udError !== "" ? 'inputUdDesignError' : ''}`}
+                                type={"ud"}
+                                name={"ud"}
+                                placeholder={">0"}
+                                functionProp={functionHandler}
+                                functionBlur={errorCheck}
+                            />
+                            <div className='errorMsg'>{orderError.udError}</div>
+                        </h3>
+
+                        <h3>Comentario :
+                            <CustomInputDescription
+                                design={`inputDesDesign ${orderError.commentError !== "" ? 'inputDesDesignError' : ''}`}
+                                type={"comment"}
+                                name={"comment"}
+                                placeholder={"Sugerencia de preparación"}
+                                functionProp={functionHandler}
+                                functionBlur={errorCheck}
+                            />
+                            <div className='errorMsg'>{orderError.commentError}</div>
+                        </h3>
+                    <div className='errorMsg'>{msgError}</div>
+
+                    <div className='buttonSubmit' onClick={Submit}>AÑADIR A LA CESTA</div>
+                    </div>
+
                 </div>
-
-                <div>Comentario :
-                    <CustomInputDescription
-                        design={`inputDesDesign ${orderError.commentError !== "" ? 'inputDesDesignError' : ''}`}
-                        type={"comment"}
-                        name={"comment"}
-                        placeholder={"Sugerencia de preparación"}
-                        functionProp={functionHandler}
-                        functionBlur={errorCheck}
-                    />
-                    <div className='errorMsg'>{orderError.commentError}</div>
-                </div>
-
-                <div className='errorMsg'>{msgError}</div>
-
-                <div className='buttonSubmit' onClick={Submit}>AÑADIR A LA CESTA</div>
-            </div>
-            </div>
+            </div >
         </>
     )
 }
