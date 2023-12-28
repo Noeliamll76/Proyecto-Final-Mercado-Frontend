@@ -1,16 +1,60 @@
 
 .headerDesign {
-
     height: 16vh;
     width: 100vw;
 
     background-color: whitesmoke;
+    color: darkslategray;
+    font-weight: bold;
 
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: flex-end;
+}
 
+.headerBox {
+    height: 14vh;
+    width: 90vw;
+
+    background-color: whitesmoke;
     color: darkslategray;
     font-weight: bold;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoDesign{
+    height: 10vh;
+    width: 30vw;
+}
+.headerLogo {
+    height: 12vh;
+    width: 40vw;
+
+    background-color: whitesmoke;
+    color: darkslategray;
+    font-weight: bold;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.headerButtons {
+    height: 12vh;
+    width: 40vw;
+
+    background-color: whitesmoke;
+    color: darkslategray;
+    font-weight: bold;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
 }
