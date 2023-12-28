@@ -1,4 +1,4 @@
-.cardsDesign {
+.storesCardsDesign {
     height: 88vh;
     width: 100vw;
 
@@ -6,10 +6,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-
-    background-color: rgb(230, 149, 42);
-    color: darkslategray;
-  
+        
 }
 
 .storesRoster {

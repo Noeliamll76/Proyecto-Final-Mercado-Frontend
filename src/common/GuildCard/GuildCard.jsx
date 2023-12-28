@@ -1,11 +1,12 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './GuildCard.css';
+
 
 export const GuildCard = ({ name, selected, selectFunction }) => {
 
     const [change, setChange] = useState(true);
-
+ 
     const callSelectClick = () => {
         setChange(!change)
         selectFunction()
@@ -13,7 +14,7 @@ export const GuildCard = ({ name, selected, selectFunction }) => {
 
     return (
         <div className={`guildCardDesign ${!change ? selected : ''}`} onClick={callSelectClick}>
-            <div>{name}</div>
+            <h2>{name}</h2>
         </div>
     )
 }

@@ -1,7 +1,7 @@
 
 .guildCardDesign {
-    height: 22em;
-    width: 20em;
+    height: 7em;
+    width: 12em;
 
     border-radius: 1em;
     display: flex;
@@ -9,7 +9,7 @@
     align-items: center;
     flex-direction: column;
 
-    background-color: rgb(193, 247, 111);
+    background-color: rgb(213, 246, 246);
     color: darkslategray;
     border: 0.2 solid black;
 
@@ -28,4 +28,3 @@
     background-color: darkcyan;
     color: white;
 }
-

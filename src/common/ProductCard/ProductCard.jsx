@@ -3,7 +3,7 @@ import { getImage_productById } from '../../services/apiCalls';
 
 import './ProductCard.css';
 
-export const ProductCard = ({ image_id, category_id, name, variety, origin, price, selected, selectFunction }) => {
+export const ProductCard = ({ image_id, name, variety, origin, price, selected, selectFunction }) => {
 
     const [change, setChange] = useState(true);
     const [image, setImage] = useState('');
@@ -28,8 +28,7 @@ export const ProductCard = ({ image_id, category_id, name, variety, origin, pric
     return (
         <div className={`productsCardDesign ${!change ? selected : ''}`} onClick={callSelectClick}>
             <div><img className='avatar' src={image} /></div>
-            <div>{category_id}</div>
-            <div>Producto: {name}</div>
+            <h2>Producto: {name}</h2>
             <div>Variedad: {variety}</div>
             <div>Origen: {origin}</div>
             <div>Precio: {price} €</div>

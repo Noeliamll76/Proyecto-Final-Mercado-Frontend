@@ -7,6 +7,7 @@ import { saveStore } from "../../pages/storeSlice";
 import "./StoresByGuild.css";
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
+import pantallaInicio from '../../../public/image/pantalla-inicio.png'
 
 export const StoresByGuild = () => {
     const navigate = useNavigate()
@@ -44,10 +45,18 @@ export const StoresByGuild = () => {
         }, 500);
         console.log(argumento)
     }
-
+console.log (stores)
     return (
         <>
-            <div className='cardsDesign'>
+            <div className='storesCardsDesign'>
+            <div style={{
+                    backgroundImage: `url(${pantallaInicio})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    width: '100%',
+                    height: '100vh',
+                }}>
+                </div>
                 {stores.length > 0 ? (
                     <div className='storesRoster'>
                         {stores.map(store => {
@@ -56,7 +65,7 @@ export const StoresByGuild = () => {
                                     StoresCard
                                     key={store.id}
                                     name={store.name}
-                                    locaction={store.location}
+                                    location={store.location}
                                     image={store.image}
                                     description={store.description}
                                     selected={"selectedCard"}

@@ -15,6 +15,7 @@ export const ProductsByStore = () => {
     const dispatch = useDispatch()
     const rdxStore = useSelector(storeData)
     const idStore = rdxStore.infoStore.id
+    console.log (rdxStore)
     const rdxUser = useSelector(userData)
     const token = rdxUser.credentials.token
 
@@ -37,7 +38,7 @@ export const ProductsByStore = () => {
             }, 400)
         }
     }, [products]);
-
+   
     const tellMe = (argumento) => {
         if (token) {
             dispatch(saveProduct({ infoProduct: argumento }))
@@ -53,6 +54,14 @@ export const ProductsByStore = () => {
     return (
         <>
             <div className='cardsDesign'>
+            <div style={{
+                    backgroundImage: `url(${rdxStore.infoStore.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    width: '100%',
+                    height: '100vh',
+                }}>
+                </div>
                 {products.length > 0 ? (
                     <div className='productsRoster'>
                         {products.map(product => {
@@ -61,7 +70,6 @@ export const ProductsByStore = () => {
                                     ProductCard
                                     key={product.id}
                                     image_id={product.image_id}
-                                    category={product.category}
                                     name={product.name}
                                     variety={product.variety}
                                     origin={product.origin}

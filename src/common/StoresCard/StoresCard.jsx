@@ -12,9 +12,9 @@ export const StoresCard = ({ name, location, image, description, selected, selec
 
     return (
         <div className={`storesCardDesign ${!change ? selected : ''}`} onClick={callSelectClick}>
-            <div>{name}</div>
-            <div>{location}</div>
             <div><img className='avatar' src={image}/></div>
+            <h2>{name}</h2>
+            <div>{location}</div>
             <div>{description}</div>
           
         </div>

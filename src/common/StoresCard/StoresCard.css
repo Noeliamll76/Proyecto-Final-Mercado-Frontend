@@ -1,6 +1,6 @@
 
 .storesCardDesign {
-    height: 22em;
+    height: 15em;
     width: 20em;
 
     border-radius: 1em;
@@ -9,8 +9,9 @@
     align-items: center;
     flex-direction: column;
 
-    background-color: rgb(193, 247, 111);
+    background-color: rgb(213, 246, 246);
     color: darkslategray;
+    font-weight: 900;
     border: 0.2 solid black;
 
     transition: 0.5s;
@@ -30,6 +31,6 @@
 }
 
 .avatar {
-    height: 15em;
-    width: 19em;
+    height:15em;
+    width: 15em;
 }
