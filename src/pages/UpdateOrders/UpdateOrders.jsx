@@ -16,10 +16,10 @@ export const UpdateOrders = () => {
 
     const navigate = useNavigate()
     const rdxProduct = useSelector(productData)
-    
+
     const rdxUser = useSelector(userData)
     const token = rdxUser.credentials.token
-    
+
     const rdxOrder = useSelector(orderData)
     const orderId = rdxOrder.infoOrder.id
 
@@ -100,48 +100,55 @@ export const UpdateOrders = () => {
 
     return (
         <div className="orderDesign">
-            <div className="orderForm">
-                <ProductCard
-                    key={rdxProduct.infoProduct.id}
-                    image_id={rdxProduct.infoProduct.image_id}
-                    category={rdxProduct.infoProduct.category}
-                    name={rdxProduct.infoProduct.name}
-                    variety={rdxProduct.infoProduct.variety}
-                    origin={rdxProduct.infoProduct.origin}
-                    price={rdxProduct.infoProduct.price}
-                    selected={""}
-                    selectFunction={""}
-                />
+            <div className='boxContainer'>
 
-                <div>Ud :
-                    <CustomInputUd
-                        disabled={!isEnabled}
-                        design={`inputUdDesign ${orderError.udError !== "" ? 'inputUdDesignError' : ''}`}
-                        type={"ud"}
-                        name={"ud"}
-                        placeholder={">0"}
-                        functionProp={functionHandler}
-                        functionBlur={errorCheck}
-                    />
-                    <div className='errorMsg'>{orderError.udError}</div>
+                <div className='updateOrderBox1'>
+                    <div className="orderForm">
+                        <ProductCard
+                            key={rdxProduct.infoProduct.id}
+                            image_id={rdxProduct.infoProduct.image_id}
+                            category={rdxProduct.infoProduct.category}
+                            name={rdxProduct.infoProduct.name}
+                            variety={rdxProduct.infoProduct.variety}
+                            origin={rdxProduct.infoProduct.origin}
+                            price={rdxProduct.infoProduct.price}
+                            selected={""}
+                            selectFunction={""}
+                        />
+                    </div>
                 </div>
 
-                <div>Comentario :
-                    <CustomInputDescription
-                        disabled={!isEnabled}
-                        design={`inputDesDesign ${orderError.commentError !== "" ? 'inputDesDesignError' : ''}`}
-                        type={"comment"}
-                        name={"comment"}
-                        placeholder={"Sugerencia de preparación"}
-                        functionProp={functionHandler}
-                        functionBlur={errorCheck}
-                    />
-                    <div className='errorMsg'>{orderError.commentError}</div>
+                <div className='updateOrderBox2'>
+                    <h3>Ud :
+                        <CustomInputUd
+                            disabled={!isEnabled}
+                            design={`inputUdDesign ${orderError.udError !== "" ? 'inputUdDesignError' : ''}`}
+                            type={"ud"}
+                            name={"ud"}
+                            placeholder={">0"}
+                            functionProp={functionHandler}
+                            functionBlur={errorCheck}
+                        />
+                        <div className='errorMsg'>{orderError.udError}</div>
+                    </h3>
+
+                    <h3>Comentario :
+                        <CustomInputDescription
+                            disabled={!isEnabled}
+                            design={`inputDesDesign ${orderError.commentError !== "" ? 'inputDesDesignError' : ''}`}
+                            type={"comment"}
+                            name={"comment"}
+                            placeholder={"Sugerencia de preparación"}
+                            functionProp={functionHandler}
+                            functionBlur={errorCheck}
+                        />
+                        <div className='errorMsg'>{orderError.commentError}</div>
+                    </h3>
                     <div className='errorMsg'>{msgError}</div>
-                </div>
 
                 <div className="button1Submit" onClick={() => sendData()}>UPDATE </div>
-                <div className="buttonDelete" onClick={() => deleteData()}> X </div>
+                <div className="buttonDelete" onClick={() => deleteData()}> X DELETE</div>
+                </div>
             </div>
         </div>
     );

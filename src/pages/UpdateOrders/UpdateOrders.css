@@ -3,19 +3,45 @@
     width: 100vw;
     
     display:flex;
-    justify-content: flex-start;
-    align-items: center;
     flex-direction: column; 
+    justify-content: flex-start;
+    align-content: center;
+    align-items: start;
  
-    background-color: rgb(247, 195, 100);
+    
     color: darkslategray;
     border: 0.2 solid black;
 
     transition: 0.5s;
     margin: 1em;
     
+    
 }
+.boxContainer {
+    height: 30em;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.updateOrderBox1{
+    height: 25em;
+    width: 40em;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.updateOrderBox2{
+    height: 25em;
+    width: 40em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
 .orderForm {
     margin: 1em;
     gap: 1em;
@@ -47,7 +73,7 @@
 
 .buttonDelete {
     height: 2em;
-    width: 2em;
+    width: 8em;
     margin-top: 0.5em;
     border-radius: 1em;
     background-color: red;
