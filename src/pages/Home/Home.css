@@ -3,42 +3,57 @@
     width: 100vw;
    
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    overflow-y: scroll;
+}
+
+.homePantallaInicio1 {
+    /* height:100vh;
+    width: 100vw; */
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+ 
+}
+.homePantallaInicio2 {
+    height:95vh;
+    width: 100vw;
+   
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+.homeBox2{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.homeBox2{
+    height: 100%;
+    width: 50%;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(223, 223, 45);
-
-    overflow-y: scroll;
-}
-
-.homePantallaInicio {
-    height: 100vh;
-    width: auto;
-   
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-   
-    background-repeat: no-repeat;
-    background-size: cover; 
-    overflow-y: scroll;
-}
-.homeMap {
-    height: 100vh;
-    width: auto;
-   
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-   
-    background-repeat: no-repeat;
-    background-size: cover; 
-    overflow-y: scroll;
 }
 .inicioDesign {
-    height: 86vh;
-    width: 100vw;
-}
-
+    max-width: 100%;
+    max-height: 100%;
+} 
+.inicioDesign2 {
+    width: 88%;
+    height: 100%;
+} 
