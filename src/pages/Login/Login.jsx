@@ -25,13 +25,13 @@ export const Login = () => {
   })
 
   const functionHandler = (e) => {
-    setCredenciales((prevState) => ({...prevState, [e.target.name]: e.target.value }));
+    setCredenciales((prevState) => ({ ...prevState, [e.target.name]: e.target.value }));
   };
 
   const errorCheck = (e) => {
     let error = "";
     error = validator(e.target.name, e.target.value);
-    setCredencialesError((prevState) => ({...prevState, [e.target.name + 'Error']: error,}));
+    setCredencialesError((prevState) => ({ ...prevState, [e.target.name + 'Error']: error, }));
   }
 
   useEffect(() => {
@@ -52,7 +52,7 @@ export const Login = () => {
     logUser(credenciales)
       .then(resultado => {
         dispatch(login({ credentials: resultado.data }))
-        console.log (resultado.data.token)
+        console.log(resultado.data.token)
         setTimeout(() => {
           resultado.data.data.roles !== "user"
             ? (navigate("/profileStore"))
@@ -67,36 +67,40 @@ export const Login = () => {
 
   return (
     <>
-    <h2>Debe identificarse para realizar su compra o consultar datos</h2>
-    <div className="loginDesign">
+      <div className="loginDesign">
+      <h2>Debe identificarse para realizar su compra o consultar datos</h2>
+        <div className="containerLoginDesign">
 
-      <div>Email :
-        <CustomInput
-          design={"inputDesign"}
-          type={"email"}
-          name={"email"}
-          placeholder={"email"}
-          functionProp={functionHandler}
-          functionBlur={errorCheck}
-        />
-        <div className='errorMsg'>{credencialesError.emailError}</div>
+          <div className='containerLoginTitle'>
+            <div>Email :</div>
+            <div>Password :</div>
+          </div>
+
+          <div className='containerLoginText'>
+            <CustomInput
+              design={"inputDesign"}
+              type={"email"}
+              name={"email"}
+              placeholder={"email"}
+              functionProp={functionHandler}
+              functionBlur={errorCheck}
+            />
+            <div className='errorMsg'>{credencialesError.emailError}</div>
+            <CustomInput
+              design={"inputDesign"}
+              type={"password"}
+              name={"password"}
+              placeholder={"password min 4 characters"}
+              functionProp={functionHandler}
+              functionBlur={errorCheck}
+            />
+            <div className='errorMsg'>{credencialesError.passwordError}</div>
+          </div>
+
+        </div>
+          <div className='buttonSubmit' onClick={logMe}>Log Me!</div>
+          <div>{msgError}</div>
       </div>
-
-      <div>Password :
-        <CustomInput
-          design={"inputDesign"}
-          type={"password"}
-          name={"password"}
-          placeholder={"password min 4 characters"}
-          functionProp={functionHandler}
-          functionBlur={errorCheck}
-        />
-        <div className='errorMsg'>{credencialesError.passwordError}</div>
-      </div>
-
-      <div className='buttonSubmit' onClick={logMe}>Log Me!</div>
-      <div>{msgError}</div>
-    </div>
     </>
   )
 }

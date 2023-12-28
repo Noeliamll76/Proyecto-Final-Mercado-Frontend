@@ -13,6 +13,32 @@
     background-color: beige;
 }
 
+.containerLoginDesign{
+    height: 15em;
+    width: 50em;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+   
+}
+.containerLoginTitle{
+    height: 10em;
+    width: 15em;
+    gap: 3.5em;
+    
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+} 
+.containerLoginText{
+    height: 10em;
+    width: 20em;
+    display: flex;
+    flex-direction: column;
+}
+
 .buttonSubmit {
 
     height: 3em;
