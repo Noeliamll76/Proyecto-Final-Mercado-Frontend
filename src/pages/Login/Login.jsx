@@ -61,14 +61,17 @@ export const Login = () => {
           , 100);
       })
       .catch(error => {
-        setMsgError(error.message)
+        setTimeout(() => {
+          setMsgError("User not found")
+        }, 200);
+        (navigate("/"))
       });
   }
 
   return (
     <>
       <div className="loginDesign">
-      <h2>Debe identificarse para realizar su compra o consultar datos</h2>
+        <h2>Debe identificarse para realizar su compra o consultar datos</h2>
         <div className="containerLoginDesign">
 
           <div className='containerLoginTitle'>
@@ -98,8 +101,8 @@ export const Login = () => {
           </div>
 
         </div>
-          <div className='buttonSubmit' onClick={logMe}>Log Me!</div>
-          <div>{msgError}</div>
+        <div className='buttonSubmit' onClick={logMe}>Log Me!</div>
+        <div>{msgError}</div>
       </div>
     </>
   )
