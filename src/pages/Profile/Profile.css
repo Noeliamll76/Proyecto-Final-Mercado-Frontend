@@ -11,3 +11,24 @@
 
     background-color: beige;
 }
+
+.buttonDeleteUser {
+    height: 2em;
+    width: 8em;
+    margin-top: 0.5em;
+    border-radius: 1em;
+    background-color: black;
+    color: white;
+    font-size: large;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonDeleteUser:hover {
+    transition: 0.4s;
+    background-color:white;
+    color: black;
+    cursor: pointer;
+}

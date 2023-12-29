@@ -3,19 +3,19 @@
 import React, { useState, useEffect } from 'react';
 import './Profile.css'
 import { CustomInput } from "../../common/CustomInput/CustomInput";
-import { getUser, updateUser} from "../../services/apiCalls";
+import { getUser, updateUser, inactivateUser } from "../../services/apiCalls";
 import { validator } from "../../services/useful";
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from "react-redux";
-import { userData } from "../../pages/userSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { logout, userData } from "../../pages/userSlice";
 
 export const Profile = () => {
-
+    const dispatch =useDispatch();
     const rdxUser = useSelector(userData);
     const token = rdxUser.credentials.token
-   
+
     const navigate = useNavigate();
- 
+
     const [isEnabled, setIsEnabled] = useState(true);
     const [msgError, setMsgError] = useState();
 
@@ -53,7 +53,7 @@ export const Profile = () => {
                 getUser(token)
                     .then
                     ((results) => {
-                       setProfile(results.data.data);
+                        setProfile(results.data.data);
                     })
                     .catch((error) => console.log(error));
             }
@@ -87,12 +87,25 @@ export const Profile = () => {
                 email: profile.email,
                 phone: profile.phone,
             };
-            console.log (body)
+            console.log(body)
             const response = await updateUser(body, token);
             setMsgError(response.data.message)
             setTimeout(() => {
                 setIsEnabled(true)
                 navigate("/login");
+            }, 400);
+        }
+        catch (error) { console.log(error) }
+    };
+
+    const inactivate = async () => {
+        try {
+
+            const response = await inactivateUser(token);
+            setMsgError(response.data.message)
+            setTimeout(() => {
+                dispatch(logout({ credentials: "" }));
+                navigate("/");
             }, 400);
         }
         catch (error) { console.log(error) }
@@ -154,6 +167,7 @@ export const Profile = () => {
 
                     : (<div className="buttonSubmit" onClick={() => sendData()}>UPDATE DATA</div>)
             }
+            <div className="buttonDeleteUser" onClick={() => inactivate()}>DELETE USER</div>
         </div>
     );
 }

@@ -6,7 +6,7 @@
 
 
 
-# Table of Contents
+# Tabla de contenidos
 
 - ### 🚀 [Descripcion](#descripción-del-proyecto)
 - ### 🎯 [Objetivo aplicacion](#objetivo-de-la-aplicación)

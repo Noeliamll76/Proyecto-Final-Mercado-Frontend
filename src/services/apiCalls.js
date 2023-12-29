@@ -55,3 +55,6 @@ export const orderUpdate = async (id, body, token) => {
 export const confirmBasket = async (token) => {
    return await axios.post(`${hostURL}/confirmBasket`, {}, { headers: { Authorization: `Bearer ${token}` }});
 }
+export const inactivateUser = async (token) => {
+   return await axios.post(`${hostURL}/users/inactivate`, {}, { headers: { Authorization: `Bearer ${token}` }});
+}
