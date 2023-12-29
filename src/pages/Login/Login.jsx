@@ -55,16 +55,18 @@ export const Login = () => {
         console.log(resultado.data.token)
         setTimeout(() => {
           resultado.data.data.roles !== "user"
-            ? (navigate("/profileStore"))
+            ? setTimeout(() => {
+              (navigate("/profileStore"))
+            }, 500)
             : (navigate("/guilds"))
         }
-          , 100);
+          , 500);
       })
       .catch(error => {
+        if (error.message == "Request failed with status code 404") { setMsgError("User not found") }
         setTimeout(() => {
-          setMsgError("User not found")
-        }, 200);
-        (navigate("/"))
+          (navigate("/"))
+        }, 500);
       });
   }
 
