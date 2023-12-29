@@ -85,7 +85,7 @@ export const ConfirmBasket = () => {
                         </div>
                     </div>
 
-                    <div className='buttonSubmit' onClick={() => AcceptPay()}>ACCEPT {rdxImporte.infoTotal_import}  €</div>
+                    <div className='buttonSubmit' onClick={() => AcceptPay()}>ACCEPT {rdxImporte.infoTotal_import.toFixed(2) }  €</div>
                 </div>
 
             </div>
